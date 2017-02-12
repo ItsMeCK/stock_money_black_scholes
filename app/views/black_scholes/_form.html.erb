@@ -1,0 +1,73 @@
+<div class="form_center">
+<%= form_for(@black_schole,  remote: true) do |f| %>
+  <% if @black_schole.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@black_schole.errors.count, "error") %> prohibited this black_schole from being saved:</h2>
+
+      <ul>
+      <% @black_schole.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :stock_price %><br>
+    <%= f.text_field :stock_price %>
+  </div>
+  <div id= "error_message_stock_price" style="color:#FF0000 ">
+  </div>
+
+  <div class="field">
+    <%= f.label :strike_price %><br>
+    <%= f.text_field :strike_price %>
+  </div>
+  <div id= "error_message_strike_price" style="color:#FF0000">
+  </div>
+
+  <div class="field">
+    <%= f.label :interest_rate %><br>
+    <%= f.text_field :interest_rate %>
+  </div>
+  <div id= "error_message_interest_rate" style="color:#FF0000">
+  </div>
+  
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.text_field :time %>
+  </div>
+  <div id= "error_message_time" style="color:#FF0000">
+  </div>
+  
+  <div class="field">
+    <%= f.label :volatility %><br>
+    <%= f.text_field :volatility %>
+  </div>
+  <div id= "error_message_volatility" style="color:#FF0000">
+  </div>
+  
+  <div id="call_put_flag" class="field" >
+    <%= f.label :call_put_flag %>
+    <%= f.select :call_put_flag, ['c', 'p']%>
+
+  </div>
+
+  <div id= "error_message_call_put_flag">
+  </div>
+  <div class="actions">
+    <%= button_to "Create Black Schole", { action: "create"},
+                                method: :post, :onclick => "return validateform();" %>
+
+  <%= f.submit "Calculate Black Schole", formaction: calculate_black_schole_path, :onclick => "return validateform();"%>
+  
+  </div>
+<% end %>
+
+<div id="result">
+</div>
+</div>
+<script type="text/javascript">
+</script>
+
+

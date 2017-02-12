@@ -1,0 +1,1 @@
+json.array! @black_scholes, partial: 'black_scholes/black_schole', as: :black_schole

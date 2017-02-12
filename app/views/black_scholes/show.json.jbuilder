@@ -1,0 +1,1 @@
+json.partial! "black_scholes/black_schole", black_schole: @black_schole

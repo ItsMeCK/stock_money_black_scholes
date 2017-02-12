@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: stock_dev
+  pool: 5
+  username: postgres
+  password: root
+  host: localhost
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: stock_prod
+  pool: 5
+  username: postgres
+  password: root
+  host: localhost

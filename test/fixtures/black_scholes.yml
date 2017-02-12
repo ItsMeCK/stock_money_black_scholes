@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  stock_price: 9.99
+  strike_price: 9.99
+  interest_rate: 9.99
+  time: 9.99
+  volatility: 9.99
+  call_put_flag: MyString
+
+two:
+  stock_price: 9.99
+  strike_price: 9.99
+  interest_rate: 9.99
+  time: 9.99
+  volatility: 9.99
+  call_put_flag: MyString

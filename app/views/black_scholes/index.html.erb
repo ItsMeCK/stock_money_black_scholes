@@ -1,0 +1,114 @@
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: "orders_chart"
+      },
+      title: {
+        text: "Stock price"
+      },
+      xAxis: {
+         title: {
+          test: "Time"
+        }
+      },
+      yAxis: {
+        title: {
+          text: "Stock Price"
+        }
+      },
+      series: [{
+        name: "C",
+        pointInterval: 200,
+        data: <%= 
+        res = []
+        BlackSchole.all.each do |b|
+           res << b.c.to_f
+                  end
+          res        
+          %>
+      },
+      {
+        name: "P",
+        pointInterval: 200,
+        data: <%= 
+        res = []
+        BlackSchole.all.each do |b|
+           res << b.p.to_f
+                  end
+          res        
+          %>
+      },
+      {
+        name: "D1",
+        pointInterval: 200,
+        data: <%= 
+        res = []
+        BlackSchole.all.each do |b|
+           res << b.d1.to_f
+                  end
+          res        
+          %>
+      },
+      {
+        name: "D2",
+        pointInterval: 200,
+        data: <%= 
+        res = []
+        BlackSchole.all.each do |b|
+           res << b.d2.to_f
+                  end
+          res        
+          %>
+      }] 
+    });
+  });
+</script>
+<div id="orders_chart" style="width:800px; height:300px;"></div>
+
+
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Black Scholes</h1>
+
+<table table class="table">
+  <thead>
+    <tr>
+      <th>Stock price</th>
+      <th>Strike price</th>
+      <th>Interest rate</th>
+      <th>Time</th>
+      <th>Volatility</th>
+      <th>Call put flag</th>
+      <th>C</th>
+      <th>P</th>
+      <th>D1</th>
+      <th>D2</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @black_scholes.each do |black_schole| %>
+      <tr>
+        <td><%= black_schole.stock_price %></td>
+        <td><%= black_schole.strike_price %></td>
+        <td><%= black_schole.interest_rate %></td>
+        <td><%= black_schole.time %></td>
+        <td><%= black_schole.volatility %></td>
+        <td><%= black_schole.call_put_flag %></td>
+        <td><%= black_schole.c %></td>
+        <td><%= black_schole.p %></td>
+        <td><%= black_schole.d1 %></td>
+        <td><%= black_schole.d2 %></td>
+        <td><%= link_to 'Show', black_schole %></td>
+        <td><%= link_to 'Edit', edit_black_schole_path(black_schole) %></td>
+        <td><%= link_to 'Destroy', black_schole, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Black schole', new_black_schole_path %>
