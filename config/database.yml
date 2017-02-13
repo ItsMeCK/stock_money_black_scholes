@@ -1,8 +1,9 @@
-development:
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+ postgres:
+  hostname: localhost
+  port: 5432
+  username: you
+  password: password
+  database: pg-db
 
 production:
   adapter: postgresql
