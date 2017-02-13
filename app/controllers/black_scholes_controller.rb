@@ -65,7 +65,6 @@ class BlackScholesController < ApplicationController
   end
 
   def calculate_black_schole
-    puts params.inspect
     stock_price = params[:black_schole]
     @result = BlackSchole.black_scholes(stock_price[:call_put_flag], stock_price[:stock_price].to_f, stock_price[:strike_price].to_f, stock_price[:time].to_f, stock_price[:interest_rate].to_f, stock_price[:volatility].to_f)
     

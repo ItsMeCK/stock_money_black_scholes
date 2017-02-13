@@ -15,7 +15,6 @@ def self.cnd(x)
 end
 
 def self.black_scholes(callPutFlag, s, x, t, r, v)
-	puts "===#{s}==#{x}===#{t}===#{r}===#{v}"
 	result = {}
 	d1 = (Math.log(s/x)+(r+v*v/2.0)*t)/(v*Math.sqrt(t))
 	result[:d1] = d1
@@ -24,9 +23,73 @@ def self.black_scholes(callPutFlag, s, x, t, r, v)
 	if callPutFlag == 'c'
 		result[:c] = s*cnd(d1)-x*Math.exp(-r*t)*cnd(d2)	
 	else
-		result[:p] =x*Math.exp(-r*t)*cnd(-d2)-s*cnd(-d1)	 
+		result[:p] = x*Math.exp(-r*t)*cnd(-d2)-s*cnd(-d1)	 
 	end
 	return result
 end
+
+def self.get_c
+	max = BlackSchole.maximum(:time).to_f
+	res = []
+	i = 0
+	while i <= max 
+		set = false
+		BlackSchole.where("time >=  ? and time < ?", i-2, i).each do |b_s|
+    	res << b_s.c.to_f
+  		set = true
+  	end
+  	res << 0 unless set
+  	i = i + 2
+  end	
+  res 
+end
+
+def self.get_p
+	max = BlackSchole.maximum(:time).to_f
+	res = []
+	i = 0
+	while i <= max 
+		set = false
+		BlackSchole.where("time >=  ? and time < ?", i-2, i).each do |b_s|
+    	res << b_s.p.to_f
+  		set = true
+  	end
+  	res << 0 unless set
+  	i = i + 2
+  end	
+  res 
+end
+
+def self.get_d1
+	max = BlackSchole.maximum(:time).to_f
+	res = []
+	i = 0
+	while i <= max 
+		set = false
+		BlackSchole.where("time >=  ? and time < ?", i-2, i).each do |b_s|
+    	res << b_s.d1.to_f
+  		set = true
+  	end
+  	res << 0 unless set
+  	i = i + 2
+  end	
+  res  
+end
+
+def self.get_d2
+	max = BlackSchole.maximum(:time).to_f
+	res = []
+	i = 0
+	while i <= max 
+		set = false
+		BlackSchole.where("time >=  ? and time < ?", i-2, i).each do |b_s|
+    	res << b_s.d2.to_f
+  		set = true
+  	end
+  	res << 0 unless set
+  	i = i + 2
+  end	
+  res  
+end	
 
 end

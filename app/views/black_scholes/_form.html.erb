@@ -1,4 +1,5 @@
-<div class="form_center">
+<div class="form_center" style="width:80%;display:flex;margin:auto;">
+<div style="width:50%;margin:auto;">
 <%= form_for(@black_schole,  remote: true) do |f| %>
   <% if @black_schole.errors.any? %>
     <div id="error_explanation">
@@ -13,35 +14,35 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :stock_price %><br>
+    <%= f.label :stock_price, "Stock Price*"%><br>
     <%= f.text_field :stock_price %>
   </div>
   <div id= "error_message_stock_price" style="color:#FF0000 ">
   </div>
 
   <div class="field">
-    <%= f.label :strike_price %><br>
+    <%= f.label :strike_price, "Strick Price*" %><br>
     <%= f.text_field :strike_price %>
   </div>
   <div id= "error_message_strike_price" style="color:#FF0000">
   </div>
 
   <div class="field">
-    <%= f.label :interest_rate %><br>
+    <%= f.label :interest_rate, "Interest Rate*" %><br>
     <%= f.text_field :interest_rate %>
   </div>
   <div id= "error_message_interest_rate" style="color:#FF0000">
   </div>
   
   <div class="field">
-    <%= f.label :time %><br>
+    <%= f.label :time, "Time*" %><br>
     <%= f.text_field :time %>
   </div>
   <div id= "error_message_time" style="color:#FF0000">
   </div>
   
   <div class="field">
-    <%= f.label :volatility %><br>
+    <%= f.label :volatility, "Volatility*" %><br>
     <%= f.text_field :volatility %>
   </div>
   <div id= "error_message_volatility" style="color:#FF0000">
@@ -63,8 +64,8 @@
   
   </div>
 <% end %>
-
-<div id="result">
+</div>
+<div id="result" style="width:50%;margin:auto;">
 </div>
 </div>
 <script type="text/javascript">

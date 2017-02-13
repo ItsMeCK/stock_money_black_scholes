@@ -8,6 +8,7 @@
         text: "Stock price"
       },
       xAxis: {
+         minTickInterval: 2,
          title: {
           test: "Time"
         }
@@ -19,47 +20,27 @@
       },
       series: [{
         name: "C",
-        pointInterval: 200,
-        data: <%= 
-        res = []
-        BlackSchole.all.each do |b|
-           res << b.c.to_f
-                  end
-          res        
-          %>
+        pointInterval: 2,
+        pointStart: 0,
+        data: <%= BlackSchole.get_c%>
       },
       {
         name: "P",
-        pointInterval: 200,
-        data: <%= 
-        res = []
-        BlackSchole.all.each do |b|
-           res << b.p.to_f
-                  end
-          res        
-          %>
+       pointInterval: 2,
+        pointStart: 0,
+        data: <%= BlackSchole.get_p%>
       },
       {
         name: "D1",
-        pointInterval: 200,
-        data: <%= 
-        res = []
-        BlackSchole.all.each do |b|
-           res << b.d1.to_f
-                  end
-          res        
-          %>
+        pointInterval: 2,
+        pointStart: 0,
+        data: <%= BlackSchole.get_d1%>
       },
       {
         name: "D2",
-        pointInterval: 200,
-        data: <%= 
-        res = []
-        BlackSchole.all.each do |b|
-           res << b.d2.to_f
-                  end
-          res        
-          %>
+        pointInterval: 2,
+        pointStart: 0,
+        data: <%= BlackSchole.get_d2%>
       }] 
     });
   });
