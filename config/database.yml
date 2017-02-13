@@ -1,11 +1,8 @@
 development:
   adapter: postgresql
-  encoding: unicode
-  database: stock_dev
-  pool: 5
-  username: user
-  password: user1234
   host: localhost
+  username: user
+  database: app-dev
 
 production:
   adapter: postgresql
